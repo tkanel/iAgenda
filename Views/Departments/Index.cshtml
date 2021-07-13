@@ -1,0 +1,35 @@
+﻿@model IEnumerable<iAgenda.Models.Department>
+
+@{
+    ViewData["Title"] = "Index";
+}
+
+
+
+<p>
+    <h4>Τμήματα εταιρίας</h4>
+    <a class="btn btn-outline-secondary" asp-action="Create">Πατήστε εδώ για εισαγωγή νέου τμήματος</a>
+</p>
+
+<table class="table table-bordered table-hover table-striped">
+    <thead class="text-white table table-dark">
+        <tr>
+            <th>
+                @Html.Label("ΠΕΡΙΓΡΑΦΗ ΤΜΗΜΑΤΟΣ")
+            </th>
+            <th></th>
+        </tr>
+    </thead>
+    <tbody>
+@foreach (var item in Model) {
+        <tr>
+            <td>
+                @Html.DisplayFor(modelItem => item.Description)
+            </td>
+            <td>
+                <partial name="_tableButtons" model="item" />
+            </td>
+        </tr>
+}
+    </tbody>
+</table>
