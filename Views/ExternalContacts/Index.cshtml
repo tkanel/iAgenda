@@ -1,0 +1,70 @@
+﻿@model IEnumerable<iAgenda.Models.ExternalContact>
+
+@{
+    ViewData["Title"] = "Index";
+}
+
+<p>
+    <h4>Εξωτερικοί συνεργάτες</h4>
+    <a class="btn btn-outline-secondary" asp-action="Create">Πατήστε εδώ για εισαγωγή νέου συνεργάτη</a>
+</p>
+
+<table class="table table-bordered table-hover table-striped">
+    <thead class="text-white table table-dark">
+        <tr>
+            <th>
+                @Html.Label("ΟΝΟΜΑΤΕΠΩΝΥΜΟ")
+            </th>
+            <th>
+                @Html.Label("ΤΗΛΕΦΩΝΟ")
+            </th>
+            <th>
+                @Html.Label("ΚΙΝΗΤΟ 1")
+            </th>
+            <th>
+                @Html.Label("ΚΙΝΗΤΟ 2")
+            </th>
+            <th>
+                @Html.Label("ΣΗΜΕΙΩΣΕΙΣ")
+            </th>
+            <th>
+                @Html.Label("EMAIL")
+            </th>
+            <th>
+                @Html.Label("ΕΤΑΙΡΙΑ")
+            </th>
+            <th></th>
+        </tr>
+    </thead>
+    <tbody>
+        @foreach (var item in Model)
+        {
+            <tr>
+                <td>
+                    @Html.DisplayFor(modelItem => item.Name)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.Phone)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.Mobile1)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.Mobile2)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.Notes)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.Email)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.Companies.CompanyName)
+                </td>
+                <td>
+                    <partial name="_tableButtons" model="item" />
+                </td>
+            </tr>
+        }
+    </tbody>
+</table>

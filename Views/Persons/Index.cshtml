@@ -14,63 +14,64 @@
     <thead class="text-white table table-dark">
         <tr>
             <th>
-                @Html.DisplayNameFor(model => model.Name)
+                @Html.Label("ΟΝΟΜΑΤΕΠΩΝΥΜΟ")
             </th>
             <th>
-                @Html.DisplayNameFor(model => model.InternalPhone)
+                @Html.Label("ΕΣ. ΤΗΛΕΦΩΝΟ")
             </th>
             <th>
-                @Html.DisplayNameFor(model => model.Mobile1)
+                @Html.Label("ΚΙΝ. ΤΗΛΕΦΩΝΟ 1")
             </th>
             <th>
-                @Html.DisplayNameFor(model => model.Mobile2)
+                @Html.Label("ΚΙΝ. ΤΗΛΕΦΩΝΟ 2")
             </th>
             <th>
-                @Html.DisplayNameFor(model => model.FourDigitsCode)
+                @Html.Label("ΤΕΤΡΑΨΗΦΙΟ")
             </th>
             <th>
-                @Html.DisplayNameFor(model => model.Notes)
+                @Html.Label("ΣΗΜΕΙΩΣΕΙΣ")
             </th>
             <th>
-                @Html.DisplayNameFor(model => model.Email)
+                @Html.Label("EMAIL")
             </th>
             <th>
-                @Html.DisplayNameFor(model => model.Departments)
+                @Html.Label("ΤΜΗΜΑ")
             </th>
             <th></th>
         </tr>
     </thead>
     <tbody>
-@foreach (var item in Model) {
-        <tr>
-            <td>
-                @Html.DisplayFor(modelItem => item.Name)
-            </td>
-            <td>
-                @Html.DisplayFor(modelItem => item.InternalPhone)
-            </td>
-            <td>
-                @Html.DisplayFor(modelItem => item.Mobile1)
-            </td>
-            <td>
-                @Html.DisplayFor(modelItem => item.Mobile2)
-            </td>
-            <td>
-                @Html.DisplayFor(modelItem => item.FourDigitsCode)
-            </td>
-            <td>
-                @Html.DisplayFor(modelItem => item.Notes)
-            </td>
-            <td>
-                @Html.DisplayFor(modelItem => item.Email)
-            </td>
-            <td>
-                @Html.DisplayFor(modelItem => item.Departments.Description)
-            </td>
-            <td>
-                <partial name="_tableButtons" model="item" />
-            </td>
-        </tr>
-}
+        @foreach (var item in Model)
+        {
+            <tr>
+                <td>
+                    @Html.DisplayFor(modelItem => item.Name)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.InternalPhone)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.Mobile1)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.Mobile2)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.FourDigitsCode)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.Notes)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.Email)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.Departments.Description)
+                </td>
+                <td>
+                    <partial name="_tableButtons" model="item" />
+                </td>
+            </tr>
+        }
     </tbody>
 </table>
