@@ -20,5 +20,7 @@ namespace iAgenda.Data
         public DbSet<ExternalContact> ExternalContacts { get; set; }
 
         public DbSet<Company> Companies { get; set; }
+
+        public DbSet<BranchOffice> BranchOffices { get; set; }
     }
 }

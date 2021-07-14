@@ -5,16 +5,28 @@
 }
 
 <p>
-    <h4>Συνεργαζόμενες εταιρίες</h4>
-    <a class="btn btn-outline-secondary" asp-action="Create">Πατήστε εδώ για εισαγωγή νέας εταιρίας</a>
+    <h4>Εταιρίες</h4>
+    <a class="btn btn-outline-secondary" asp-action="Create">Πατήστε εδώ για εισαγωγή εταιρίας</a>
 </p>
+
 
 <table class="table table-bordered table-hover table-striped">
     <thead class="text-white table table-dark">
-   
         <tr>
             <th>
                 @Html.Label("ΟΝΟΜΑ ΕΤΑΙΡΙΑΣ")
+            </th>
+            <th>
+                @Html.Label("ΔΙΕΥΘΥΝΣΗ")
+            </th>
+            <th>
+                @Html.Label("ΤΗΛΕΦΩΝΟ 1")
+            </th>
+            <th>
+                @Html.Label("ΤΗΛΕΦΩΝΟ 2")
+            </th>
+            <th>
+                @Html.Label("ΣΗΜΕΙΩΣΕΙΣ")
             </th>
             <th></th>
         </tr>
@@ -25,6 +37,18 @@
             <tr>
                 <td>
                     @Html.DisplayFor(modelItem => item.CompanyName)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.Address)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.Phone1)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.Phone2)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.Notes)
                 </td>
                 <td>
                     <partial name="_tableButtons" model="item" />

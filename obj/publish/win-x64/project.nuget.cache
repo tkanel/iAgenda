@@ -1,6 +1,6 @@
 {
   "version": 2,
-  "dgSpecHash": "su7qvHPB0iEBezmt9pevpTVKmZaYGW+gQJ/7g3SaqT+mc3tsvBOR4jnjHkZZa8rz1MZw0ydraptYa9/684cTlg==",
+  "dgSpecHash": "/OU9PbOafOqP+Djn0xIZb+e4rZGQTNiOVBdfEI+VSuvZH/KMQuxbMwPya1xhjm/wyB3OC+uTpnKGUv0UJQJYWg==",
   "success": true,
   "projectFilePath": "C:\\Users\\Thodoris\\source\\Git\\iAgenda\\iAgenda.csproj",
   "expectedPackageFiles": [
@@ -162,7 +162,10 @@
     "C:\\Users\\Thodoris\\.nuget\\packages\\system.xml.readerwriter\\4.3.0\\system.xml.readerwriter.4.3.0.nupkg.sha512",
     "C:\\Users\\Thodoris\\.nuget\\packages\\system.xml.xdocument\\4.3.0\\system.xml.xdocument.4.3.0.nupkg.sha512",
     "C:\\Users\\Thodoris\\.nuget\\packages\\system.xml.xmldocument\\4.3.0\\system.xml.xmldocument.4.3.0.nupkg.sha512",
-    "C:\\Users\\Thodoris\\.nuget\\packages\\system.xml.xmlserializer\\4.3.0\\system.xml.xmlserializer.4.3.0.nupkg.sha512"
+    "C:\\Users\\Thodoris\\.nuget\\packages\\system.xml.xmlserializer\\4.3.0\\system.xml.xmlserializer.4.3.0.nupkg.sha512",
+    "C:\\Users\\Thodoris\\.nuget\\packages\\microsoft.netcore.app.runtime.win-x64\\5.0.8\\microsoft.netcore.app.runtime.win-x64.5.0.8.nupkg.sha512",
+    "C:\\Users\\Thodoris\\.nuget\\packages\\microsoft.windowsdesktop.app.runtime.win-x64\\5.0.8\\microsoft.windowsdesktop.app.runtime.win-x64.5.0.8.nupkg.sha512",
+    "C:\\Users\\Thodoris\\.nuget\\packages\\microsoft.aspnetcore.app.runtime.win-x64\\5.0.8\\microsoft.aspnetcore.app.runtime.win-x64.5.0.8.nupkg.sha512"
   ],
   "logs": []
 }

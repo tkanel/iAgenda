@@ -29,9 +29,10 @@ namespace iAgenda.Models
 
         //FK
         public int DepartmentId { get; set; }
-        public  Department  Departments { get; set; }
+        public  Department  Department { get; set; }
 
-
+        public int BranchOfficeId { get; set; }
+        public BranchOffice BranchOffice { get; set; }
 
     }
 }

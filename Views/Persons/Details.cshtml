@@ -53,10 +53,16 @@
             @Html.DisplayFor(model => model.Email)
         </dd>
         <dt class = "col-sm-2">
-            @Html.DisplayNameFor(model => model.Departments)
+            @Html.DisplayNameFor(model => model.Department)
         </dt>
         <dd class = "col-sm-10">
-            @Html.DisplayFor(model => model.Departments.Description)
+            @Html.DisplayFor(model => model.Department.Description)
+        </dd>
+        <dt class = "col-sm-2">
+            @Html.DisplayNameFor(model => model.BranchOffice)
+        </dt>
+        <dd class = "col-sm-10">
+            @Html.DisplayFor(model => model.BranchOffice.Name)
         </dd>
     </dl>
 </div>

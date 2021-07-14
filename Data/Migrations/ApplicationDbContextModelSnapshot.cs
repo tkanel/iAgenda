@@ -16,7 +16,7 @@ namespace iAgenda.Data.Migrations
 #pragma warning disable 612, 618
             modelBuilder
                 .HasAnnotation("Relational:MaxIdentifierLength", 128)
-                .HasAnnotation("ProductVersion", "5.0.7")
+                .HasAnnotation("ProductVersion", "5.0.8")
                 .HasAnnotation("SqlServer:ValueGenerationStrategy", SqlServerValueGenerationStrategy.IdentityColumn);
 
             modelBuilder.Entity("Microsoft.AspNetCore.Identity.IdentityRole", b =>
@@ -219,6 +219,22 @@ namespace iAgenda.Data.Migrations
                     b.ToTable("AspNetUserTokens");
                 });
 
+            modelBuilder.Entity("iAgenda.Models.BranchOffice", b =>
+                {
+                    b.Property<int>("Id")
+                        .ValueGeneratedOnAdd()
+                        .HasColumnType("int")
+                        .HasAnnotation("SqlServer:ValueGenerationStrategy", SqlServerValueGenerationStrategy.IdentityColumn);
+
+                    b.Property<string>("Name")
+                        .IsRequired()
+                        .HasColumnType("nvarchar(max)");
+
+                    b.HasKey("Id");
+
+                    b.ToTable("BranchOffices");
+                });
+
             modelBuilder.Entity("iAgenda.Models.Company", b =>
                 {
                     b.Property<int>("Id")
@@ -226,8 +242,20 @@ namespace iAgenda.Data.Migrations
                         .HasColumnType("int")
                         .HasAnnotation("SqlServer:ValueGenerationStrategy", SqlServerValueGenerationStrategy.IdentityColumn);
 
+                    b.Property<string>("Address")
+                        .HasColumnType("nvarchar(max)");
+
                     b.Property<string>("CompanyName")
                         .IsRequired()
+                        .HasColumnType("nvarchar(max)");
+
+                    b.Property<string>("Notes")
+                        .HasColumnType("nvarchar(max)");
+
+                    b.Property<string>("Phone1")
+                        .HasColumnType("nvarchar(max)");
+
+                    b.Property<string>("Phone2")
                         .HasColumnType("nvarchar(max)");
 
                     b.HasKey("Id");
@@ -294,6 +322,9 @@ namespace iAgenda.Data.Migrations
                         .HasColumnType("int")
                         .HasAnnotation("SqlServer:ValueGenerationStrategy", SqlServerValueGenerationStrategy.IdentityColumn);
 
+                    b.Property<int>("BranchOfficeId")
+                        .HasColumnType("int");
+
                     b.Property<int>("DepartmentId")
                         .HasColumnType("int");
 
@@ -320,6 +351,8 @@ namespace iAgenda.Data.Migrations
                         .HasColumnType("nvarchar(max)");
 
                     b.HasKey("Id");
+
+                    b.HasIndex("BranchOfficeId");
 
                     b.HasIndex("DepartmentId");
 
@@ -390,13 +423,21 @@ namespace iAgenda.Data.Migrations
 
             modelBuilder.Entity("iAgenda.Models.Person", b =>
                 {
-                    b.HasOne("iAgenda.Models.Department", "Departments")
+                    b.HasOne("iAgenda.Models.BranchOffice", "BranchOffice")
+                        .WithMany()
+                        .HasForeignKey("BranchOfficeId")
+                        .OnDelete(DeleteBehavior.Cascade)
+                        .IsRequired();
+
+                    b.HasOne("iAgenda.Models.Department", "Department")
                         .WithMany()
                         .HasForeignKey("DepartmentId")
                         .OnDelete(DeleteBehavior.Cascade)
                         .IsRequired();
 
-                    b.Navigation("Departments");
+                    b.Navigation("BranchOffice");
+
+                    b.Navigation("Department");
                 });
 #pragma warning restore 612, 618
         }

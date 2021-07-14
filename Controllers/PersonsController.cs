@@ -23,7 +23,7 @@ namespace iAgenda.Controllers
         // GET: Persons
         public async Task<IActionResult> Index()
         {
-            var applicationDbContext = _context.Persons.Include(p => p.Departments);
+            var applicationDbContext = _context.Persons.Include(p => p.BranchOffice).Include(p => p.Department);
             return View(await applicationDbContext.ToListAsync());
         }
 
@@ -36,7 +36,8 @@ namespace iAgenda.Controllers
             }
 
             var person = await _context.Persons
-                .Include(p => p.Departments)
+                .Include(p => p.BranchOffice)
+                .Include(p => p.Department)
                 .FirstOrDefaultAsync(m => m.Id == id);
             if (person == null)
             {
@@ -50,6 +51,7 @@ namespace iAgenda.Controllers
         [Authorize]
         public IActionResult Create()
         {
+            ViewData["BranchOfficeId"] = new SelectList(_context.BranchOffices, "Id", "Name");
             ViewData["DepartmentId"] = new SelectList(_context.Departments, "Id", "Description");
             return View();
         }
@@ -60,7 +62,7 @@ namespace iAgenda.Controllers
         [HttpPost]
         [ValidateAntiForgeryToken]
         [Authorize]
-        public async Task<IActionResult> Create([Bind("Id,Name,InternalPhone,Mobile1,Mobile2,FourDigitsCode,Notes,Email,DepartmentId")] Person person)
+        public async Task<IActionResult> Create([Bind("Id,Name,InternalPhone,Mobile1,Mobile2,FourDigitsCode,Notes,Email,DepartmentId,BranchOfficeId")] Person person)
         {
             if (ModelState.IsValid)
             {
@@ -68,6 +70,7 @@ namespace iAgenda.Controllers
                 await _context.SaveChangesAsync();
                 return RedirectToAction(nameof(Index));
             }
+            ViewData["BranchOfficeId"] = new SelectList(_context.BranchOffices, "Id", "Name", person.BranchOfficeId);
             ViewData["DepartmentId"] = new SelectList(_context.Departments, "Id", "Description", person.DepartmentId);
             return View(person);
         }
@@ -86,6 +89,7 @@ namespace iAgenda.Controllers
             {
                 return NotFound();
             }
+            ViewData["BranchOfficeId"] = new SelectList(_context.BranchOffices, "Id", "Name", person.BranchOfficeId);
             ViewData["DepartmentId"] = new SelectList(_context.Departments, "Id", "Description", person.DepartmentId);
             return View(person);
         }
@@ -96,7 +100,7 @@ namespace iAgenda.Controllers
         [HttpPost]
         [ValidateAntiForgeryToken]
         [Authorize]
-        public async Task<IActionResult> Edit(int id, [Bind("Id,Name,InternalPhone,Mobile1,Mobile2,FourDigitsCode,Notes,Email,DepartmentId")] Person person)
+        public async Task<IActionResult> Edit(int id, [Bind("Id,Name,InternalPhone,Mobile1,Mobile2,FourDigitsCode,Notes,Email,DepartmentId,BranchOfficeId")] Person person)
         {
             if (id != person.Id)
             {
@@ -123,6 +127,7 @@ namespace iAgenda.Controllers
                 }
                 return RedirectToAction(nameof(Index));
             }
+            ViewData["BranchOfficeId"] = new SelectList(_context.BranchOffices, "Id", "Name", person.BranchOfficeId);
             ViewData["DepartmentId"] = new SelectList(_context.Departments, "Id", "Description", person.DepartmentId);
             return View(person);
         }
@@ -137,7 +142,8 @@ namespace iAgenda.Controllers
             }
 
             var person = await _context.Persons
-                .Include(p => p.Departments)
+                .Include(p => p.BranchOffice)
+                .Include(p => p.Department)
                 .FirstOrDefaultAsync(m => m.Id == id);
             if (person == null)
             {

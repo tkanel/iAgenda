@@ -37,6 +37,9 @@
             <th>
                 @Html.Label("ΤΜΗΜΑ")
             </th>
+            <th>
+                @Html.Label("ΥΠΟΚΑΤΑΣΤΗΜΑ")
+            </th>
             <th></th>
         </tr>
     </thead>
@@ -66,7 +69,10 @@
                     @Html.DisplayFor(modelItem => item.Email)
                 </td>
                 <td>
-                    @Html.DisplayFor(modelItem => item.Departments.Description)
+                    @Html.DisplayFor(modelItem => item.Department.Description)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.BranchOffice.Name)
                 </td>
                 <td>
                     <partial name="_tableButtons" model="item" />
