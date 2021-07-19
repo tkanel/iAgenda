@@ -21,10 +21,24 @@ namespace iAgenda.Controllers
         }
 
         // GET: Persons
-        public async Task<IActionResult> Index()
+        public async Task<IActionResult> Index(string searchString)
         {
+            ViewData["CurrentFilter"] = searchString;
             var applicationDbContext = _context.Persons.Include(p => p.BranchOffice).Include(p => p.Department).OrderBy(p=>p.Name);
-            return View(await applicationDbContext.ToListAsync());
+
+            var persons = from p in applicationDbContext
+                           select p;
+
+            if (!String.IsNullOrEmpty(searchString))
+            {
+
+               persons=persons.Where(p=>p.Name.Contains(searchString) || p.InternalPhone.Contains(searchString) || p.Mobile1.Contains(searchString) || p.Mobile2.Contains(searchString) || p.FourDigitsCode.Contains(searchString) || p.Email.Contains(searchString) || p.Department.Description.Contains(searchString) || p.BranchOffice.Name.Contains(searchString) || p.Notes.Contains(searchString));
+              
+            }
+
+            ViewBag.PersonsCount = persons.Count();
+
+            return View(await persons.ToListAsync());
         }
 
         // GET: Persons/Details/5

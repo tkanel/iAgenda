@@ -1013,3 +1013,4 @@ C:\Users\Thodoris\source\Git\iAgenda\obj\Debug\net5.0\Razor\Views\Drivers\Delete
 C:\Users\Thodoris\source\Git\iAgenda\obj\Debug\net5.0\Razor\Views\Drivers\Details.cshtml.g.cs
 C:\Users\Thodoris\source\Git\iAgenda\obj\Debug\net5.0\Razor\Views\Drivers\Edit.cshtml.g.cs
 C:\Users\Thodoris\source\Git\iAgenda\obj\Debug\net5.0\Razor\Views\Drivers\Index.cshtml.g.cs
+C:\Users\Thodoris\source\Git\iAgenda\obj\Debug\net5.0\iAgenda.csproj.AssemblyReference.cache

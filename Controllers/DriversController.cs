@@ -21,10 +21,26 @@ namespace iAgenda.Controllers
         }
 
         // GET: Drivers
-        public async Task<IActionResult> Index()
+        public async Task<IActionResult> Index(string searchString)
         {
+            ViewData["CurrentFilter"] = searchString;
             var applicationDbContext = _context.Drivers.Include(d => d.BranchOffice).Include(d => d.Department).OrderBy(d=>d.Name);
-            return View(await applicationDbContext.ToListAsync());
+
+            var drivers = from p in applicationDbContext
+                          select p;
+
+            if (!String.IsNullOrEmpty(searchString))
+            {
+
+                drivers = drivers.Where(p => p.Name.Contains(searchString) || p.Phone.Contains(searchString) || p.Mobile1.Contains(searchString) || p.Mobile2.Contains(searchString) || p.FourDigitsCode.Contains(searchString) || p.Email.Contains(searchString) || p.Department.Description.Contains(searchString) || p.BranchOffice.Name.Contains(searchString) || p.Notes.Contains(searchString));
+
+            }
+
+
+            ViewBag.DriversCount = drivers.Count();
+
+
+            return View(await drivers.ToListAsync());
         }
 
         // GET: Drivers/Details/5
