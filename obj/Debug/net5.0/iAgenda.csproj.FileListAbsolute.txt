@@ -1008,3 +1008,9 @@ C:\Users\tkane\source\Git\iAgenda\obj\Debug\net5.0\Razor\Views\Drivers\Delete.cs
 C:\Users\tkane\source\Git\iAgenda\obj\Debug\net5.0\Razor\Views\Drivers\Details.cshtml.g.cs
 C:\Users\tkane\source\Git\iAgenda\obj\Debug\net5.0\Razor\Views\Drivers\Edit.cshtml.g.cs
 C:\Users\tkane\source\Git\iAgenda\obj\Debug\net5.0\Razor\Views\Drivers\Index.cshtml.g.cs
+C:\Users\Thodoris\source\Git\iAgenda\obj\Debug\net5.0\Razor\Views\Drivers\Create.cshtml.g.cs
+C:\Users\Thodoris\source\Git\iAgenda\obj\Debug\net5.0\Razor\Views\Drivers\Delete.cshtml.g.cs
+C:\Users\Thodoris\source\Git\iAgenda\obj\Debug\net5.0\Razor\Views\Drivers\Details.cshtml.g.cs
+C:\Users\Thodoris\source\Git\iAgenda\obj\Debug\net5.0\Razor\Views\Drivers\Edit.cshtml.g.cs
+C:\Users\Thodoris\source\Git\iAgenda\obj\Debug\net5.0\Razor\Views\Drivers\Index.cshtml.g.cs
+C:\Users\Thodoris\source\Git\iAgenda\obj\Debug\net5.0\iAgenda.csproj.AssemblyReference.cache

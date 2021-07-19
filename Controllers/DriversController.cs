@@ -7,6 +7,7 @@ using Microsoft.AspNetCore.Mvc.Rendering;
 using Microsoft.EntityFrameworkCore;
 using iAgenda.Data;
 using iAgenda.Models;
+using Microsoft.AspNetCore.Authorization;
 
 namespace iAgenda.Controllers
 {
@@ -20,10 +21,26 @@ namespace iAgenda.Controllers
         }
 
         // GET: Drivers
-        public async Task<IActionResult> Index()
+        public async Task<IActionResult> Index(string searchString)
         {
-            var applicationDbContext = _context.Drivers.Include(d => d.BranchOffice).Include(d => d.Department);
-            return View(await applicationDbContext.ToListAsync());
+            ViewData["CurrentFilter"] = searchString;
+            var applicationDbContext = _context.Drivers.Include(d => d.BranchOffice).Include(d => d.Department).OrderBy(d=>d.Name);
+
+            var drivers = from p in applicationDbContext
+                          select p;
+
+            if (!String.IsNullOrEmpty(searchString))
+            {
+
+                drivers = drivers.Where(p => p.Name.Contains(searchString) || p.Phone.Contains(searchString) || p.Mobile1.Contains(searchString) || p.Mobile2.Contains(searchString) || p.FourDigitsCode.Contains(searchString) || p.Email.Contains(searchString) || p.Department.Description.Contains(searchString) || p.BranchOffice.Name.Contains(searchString) || p.Notes.Contains(searchString));
+
+            }
+
+
+            ViewBag.DriversCount = drivers.Count();
+
+
+            return View(await drivers.ToListAsync());
         }
 
         // GET: Drivers/Details/5
@@ -47,6 +64,7 @@ namespace iAgenda.Controllers
         }
 
         // GET: Drivers/Create
+        [Authorize]
         public IActionResult Create()
         {
             ViewData["BranchOfficeId"] = new SelectList(_context.BranchOffices, "Id", "Name");
@@ -59,6 +77,7 @@ namespace iAgenda.Controllers
         // For more details, see http://go.microsoft.com/fwlink/?LinkId=317598.
         [HttpPost]
         [ValidateAntiForgeryToken]
+        [Authorize]
         public async Task<IActionResult> Create([Bind("Id,Name,Phone,Mobile1,Mobile2,FourDigitsCode,TrackNr,Notes,Email,DepartmentId,BranchOfficeId")] Driver driver)
         {
             if (ModelState.IsValid)
@@ -73,6 +92,7 @@ namespace iAgenda.Controllers
         }
 
         // GET: Drivers/Edit/5
+        [Authorize]
         public async Task<IActionResult> Edit(int? id)
         {
             if (id == null)
@@ -95,6 +115,7 @@ namespace iAgenda.Controllers
         // For more details, see http://go.microsoft.com/fwlink/?LinkId=317598.
         [HttpPost]
         [ValidateAntiForgeryToken]
+        [Authorize]
         public async Task<IActionResult> Edit(int id, [Bind("Id,Name,Phone,Mobile1,Mobile2,FourDigitsCode,TrackNr,Notes,Email,DepartmentId,BranchOfficeId")] Driver driver)
         {
             if (id != driver.Id)
@@ -128,6 +149,7 @@ namespace iAgenda.Controllers
         }
 
         // GET: Drivers/Delete/5
+        [Authorize]
         public async Task<IActionResult> Delete(int? id)
         {
             if (id == null)
@@ -150,6 +172,7 @@ namespace iAgenda.Controllers
         // POST: Drivers/Delete/5
         [HttpPost, ActionName("Delete")]
         [ValidateAntiForgeryToken]
+        [Authorize]
         public async Task<IActionResult> DeleteConfirmed(int id)
         {
             var driver = await _context.Drivers.FindAsync(id);

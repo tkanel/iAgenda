@@ -23,7 +23,9 @@ namespace iAgenda.Controllers
         // GET: Departments
         public async Task<IActionResult> Index()
         {
-            return View(await _context.Departments.ToListAsync());
+
+            ViewBag.DepCount = _context.Departments.Count();
+            return View(await _context.Departments.OrderBy(d=>d.Description).ToListAsync());
         }
 
         // GET: Departments/Details/5

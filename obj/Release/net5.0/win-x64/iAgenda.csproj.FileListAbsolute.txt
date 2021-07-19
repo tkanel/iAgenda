@@ -827,3 +827,13 @@ C:\Users\Thodoris\source\Git\iAgenda\bin\Release\net5.0\win-x64\System.Security.
 C:\Users\Thodoris\source\Git\iAgenda\bin\Release\net5.0\win-x64\System.Security.Permissions.dll
 C:\Users\Thodoris\source\Git\iAgenda\bin\Release\net5.0\win-x64\System.Windows.Extensions.dll
 C:\Users\Thodoris\source\Git\iAgenda\bin\Release\net5.0\win-x64\aspnetcorev2_inprocess.dll
+C:\Users\Thodoris\source\Git\iAgenda\obj\Release\net5.0\win-x64\Razor\Views\BranchOffices\Create.cshtml.g.cs
+C:\Users\Thodoris\source\Git\iAgenda\obj\Release\net5.0\win-x64\Razor\Views\BranchOffices\Delete.cshtml.g.cs
+C:\Users\Thodoris\source\Git\iAgenda\obj\Release\net5.0\win-x64\Razor\Views\BranchOffices\Details.cshtml.g.cs
+C:\Users\Thodoris\source\Git\iAgenda\obj\Release\net5.0\win-x64\Razor\Views\BranchOffices\Edit.cshtml.g.cs
+C:\Users\Thodoris\source\Git\iAgenda\obj\Release\net5.0\win-x64\Razor\Views\BranchOffices\Index.cshtml.g.cs
+C:\Users\Thodoris\source\Git\iAgenda\obj\Release\net5.0\win-x64\Razor\Views\Drivers\Create.cshtml.g.cs
+C:\Users\Thodoris\source\Git\iAgenda\obj\Release\net5.0\win-x64\Razor\Views\Drivers\Delete.cshtml.g.cs
+C:\Users\Thodoris\source\Git\iAgenda\obj\Release\net5.0\win-x64\Razor\Views\Drivers\Details.cshtml.g.cs
+C:\Users\Thodoris\source\Git\iAgenda\obj\Release\net5.0\win-x64\Razor\Views\Drivers\Edit.cshtml.g.cs
+C:\Users\Thodoris\source\Git\iAgenda\obj\Release\net5.0\win-x64\Razor\Views\Drivers\Index.cshtml.g.cs

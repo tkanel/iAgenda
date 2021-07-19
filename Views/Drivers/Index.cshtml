@@ -8,40 +8,49 @@
     <h4>Οδηγοί</h4>
     <a class="btn btn-outline-secondary" asp-action="Create">Πατήστε εδώ για εισαγωγή οδηγού</a>
 </p>
-
+<form asp-action="Index" method="get">
+    <div class="form-actions no-color">
+        <p>
+            Ψάξιμο με : όνομα, κινητό , 4ψήφιο, email, τμήμα , υποκατάστημα ,σημειώσεις: <input type="text" name="SearchString" value="@ViewData["CurrentFilter"]" />
+            <input type="submit" value="Search" class="btn btn-info" /> |
+            <a asp-action="Index">Back to Full List</a>
+        </p>
+    </div>
+</form>
+<p class="btn btn-danger btn-sm">Πλήθος οδηγών : @ViewBag.DriversCount</p>
 
 <table class="table table-bordered table-hover table-striped">
     <thead class="text-white table table-dark">
         <tr>
             <th>
-                @Html.DisplayNameFor(model => model.Name)
+                @Html.Label("ΟΝΟΜΑΤΕΠΩΝΥΜΟ")
             </th>
             <th>
-                @Html.DisplayNameFor(model => model.Phone)
+                @Html.Label(" ΣΤΑΘΕΡΟ ΤΗΛΕΦΩΝΟ")
             </th>
             <th>
-                @Html.DisplayNameFor(model => model.Mobile1)
+                @Html.Label("ΚΙΝΗΤΟ 1")
             </th>
             <th>
-                @Html.DisplayNameFor(model => model.Mobile2)
+                @Html.Label("ΚΙΝΗΤΟ 2")
             </th>
             <th>
-                @Html.DisplayNameFor(model => model.FourDigitsCode)
+                @Html.Label("ΤΕΤΡΑΨΗΦΙΟ")
             </th>
             <th>
-                @Html.DisplayNameFor(model => model.TrackNr)
+                @Html.Label("ΑΡΙΘΜΟΣ ΦΟΡΤΗΓΟΥ")
             </th>
             <th>
-                @Html.DisplayNameFor(model => model.Notes)
+                @Html.Label("ΣΗΜΕΙΩΣΕΙΣ")
             </th>
             <th>
-                @Html.DisplayNameFor(model => model.Email)
+                @Html.Label("EMAIL")
             </th>
             <th>
-                @Html.DisplayNameFor(model => model.Department)
+                @Html.Label("ΤΜΗΜΑ")
             </th>
             <th>
-                @Html.DisplayNameFor(model => model.BranchOffice)
+                @Html.Label("ΥΠΟΚΑΤΑΣΤΗΜΑ")
             </th>
             <th></th>
         </tr>
@@ -81,9 +90,7 @@
                     @Html.DisplayFor(modelItem => item.BranchOffice.Name)
                 </td>
                 <td>
-                    <a asp-action="Edit" asp-route-id="@item.Id">Edit</a> |
-                    <a asp-action="Details" asp-route-id="@item.Id">Details</a> |
-                    <a asp-action="Delete" asp-route-id="@item.Id">Delete</a>
+                    <partial name="_tableButtons" model="item" />
                 </td>
             </tr>
         }

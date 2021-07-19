@@ -4,55 +4,54 @@
     ViewData["Title"] = "Create";
 }
 
-<h1>Create</h1>
+<h4>Εισαγωγή νέου υπαλλήλου</h4>
 
-<h4>Person</h4>
 <hr />
 <div class="row">
     <div class="col-md-4">
         <form asp-action="Create">
             <div asp-validation-summary="ModelOnly" class="text-danger"></div>
             <div class="form-group">
-                <label asp-for="Name" class="control-label"></label>
+                <label  class="control-label">Ονοματεπώνυμο</label>
                 <input asp-for="Name" class="form-control" />
                 <span asp-validation-for="Name" class="text-danger"></span>
             </div>
             <div class="form-group">
-                <label asp-for="InternalPhone" class="control-label"></label>
+                <label  class="control-label">Εσωτερικό τηλέφωνο</label>
                 <input asp-for="InternalPhone" class="form-control" />
                 <span asp-validation-for="InternalPhone" class="text-danger"></span>
             </div>
             <div class="form-group">
-                <label asp-for="Mobile1" class="control-label"></label>
+                <label  class="control-label">Κινητό 1</label>
                 <input asp-for="Mobile1" class="form-control" />
                 <span asp-validation-for="Mobile1" class="text-danger"></span>
             </div>
             <div class="form-group">
-                <label asp-for="Mobile2" class="control-label"></label>
+                <label  class="control-label">Κινητό 2</label>
                 <input asp-for="Mobile2" class="form-control" />
                 <span asp-validation-for="Mobile2" class="text-danger"></span>
             </div>
             <div class="form-group">
-                <label asp-for="FourDigitsCode" class="control-label"></label>
+                <label  class="control-label">Τετραψήφιο</label>
                 <input asp-for="FourDigitsCode" class="form-control" />
                 <span asp-validation-for="FourDigitsCode" class="text-danger"></span>
             </div>
             <div class="form-group">
-                <label asp-for="Notes" class="control-label"></label>
+                <label  class="control-label">Σημειώσεις</label>
                 <textarea asp-for="Notes" class="form-control"></textarea>
                 <span asp-validation-for="Notes" class="text-danger"></span>
             </div>
             <div class="form-group">
-                <label asp-for="Email" class="control-label"></label>
+                <label asp-for="Email"  class="control-label"></label>
                 <input asp-for="Email" class="form-control" />
                 <span asp-validation-for="Email" class="text-danger"></span>
             </div>
             <div class="form-group">
-                <label asp-for="DepartmentId" class="control-label"></label>
+                <label  class="control-label">Τμήμα</label>
                 <select asp-for="DepartmentId" class ="form-control" asp-items="ViewBag.DepartmentId"></select>
             </div>
             <div class="form-group">
-                <label asp-for="BranchOfficeId" class="control-label"></label>
+                <label  class="control-label">Υποκατάστημα</label>
                 <select asp-for="BranchOfficeId" class ="form-control" asp-items="ViewBag.BranchOfficeId"></select>
             </div>
             <div class="form-group">

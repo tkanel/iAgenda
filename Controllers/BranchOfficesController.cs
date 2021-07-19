@@ -22,7 +22,8 @@ namespace iAgenda.Controllers
         // GET: BranchOffices
         public async Task<IActionResult> Index()
         {
-            return View(await _context.BranchOffices.ToListAsync());
+            ViewBag.BranchCount = _context.BranchOffices.Count();
+            return View(await _context.BranchOffices.OrderBy(b=>b.Name).ToListAsync());
         }
 
         // GET: BranchOffices/Details/5

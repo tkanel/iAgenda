@@ -155,7 +155,7 @@ GO
 IF NOT EXISTS(SELECT * FROM [__EFMigrationsHistory] WHERE [MigrationId] = N'00000000000000_CreateIdentitySchema')
 BEGIN
     INSERT INTO [__EFMigrationsHistory] ([MigrationId], [ProductVersion])
-    VALUES (N'00000000000000_CreateIdentitySchema', N'5.0.7');
+    VALUES (N'00000000000000_CreateIdentitySchema', N'5.0.8');
 END;
 GO
 
@@ -200,7 +200,7 @@ GO
 IF NOT EXISTS(SELECT * FROM [__EFMigrationsHistory] WHERE [MigrationId] = N'20210713120725_Initial')
 BEGIN
     INSERT INTO [__EFMigrationsHistory] ([MigrationId], [ProductVersion])
-    VALUES (N'20210713120725_Initial', N'5.0.7');
+    VALUES (N'20210713120725_Initial', N'5.0.8');
 END;
 GO
 
@@ -225,7 +225,7 @@ GO
 IF NOT EXISTS(SELECT * FROM [__EFMigrationsHistory] WHERE [MigrationId] = N'20210713121610_PersonsTableUpdate')
 BEGIN
     INSERT INTO [__EFMigrationsHistory] ([MigrationId], [ProductVersion])
-    VALUES (N'20210713121610_PersonsTableUpdate', N'5.0.7');
+    VALUES (N'20210713121610_PersonsTableUpdate', N'5.0.8');
 END;
 GO
 
@@ -271,7 +271,118 @@ GO
 IF NOT EXISTS(SELECT * FROM [__EFMigrationsHistory] WHERE [MigrationId] = N'20210713132331_AddExternalContactTable')
 BEGIN
     INSERT INTO [__EFMigrationsHistory] ([MigrationId], [ProductVersion])
-    VALUES (N'20210713132331_AddExternalContactTable', N'5.0.7');
+    VALUES (N'20210713132331_AddExternalContactTable', N'5.0.8');
+END;
+GO
+
+COMMIT;
+GO
+
+BEGIN TRANSACTION;
+GO
+
+IF NOT EXISTS(SELECT * FROM [__EFMigrationsHistory] WHERE [MigrationId] = N'20210714130212_AddBranchOfficeTableUpdateCompanyTable')
+BEGIN
+    ALTER TABLE [Persons] ADD [BranchOfficeId] int NOT NULL DEFAULT 0;
+END;
+GO
+
+IF NOT EXISTS(SELECT * FROM [__EFMigrationsHistory] WHERE [MigrationId] = N'20210714130212_AddBranchOfficeTableUpdateCompanyTable')
+BEGIN
+    ALTER TABLE [Companies] ADD [Address] nvarchar(max) NULL;
+END;
+GO
+
+IF NOT EXISTS(SELECT * FROM [__EFMigrationsHistory] WHERE [MigrationId] = N'20210714130212_AddBranchOfficeTableUpdateCompanyTable')
+BEGIN
+    ALTER TABLE [Companies] ADD [Notes] nvarchar(max) NULL;
+END;
+GO
+
+IF NOT EXISTS(SELECT * FROM [__EFMigrationsHistory] WHERE [MigrationId] = N'20210714130212_AddBranchOfficeTableUpdateCompanyTable')
+BEGIN
+    ALTER TABLE [Companies] ADD [Phone1] nvarchar(max) NULL;
+END;
+GO
+
+IF NOT EXISTS(SELECT * FROM [__EFMigrationsHistory] WHERE [MigrationId] = N'20210714130212_AddBranchOfficeTableUpdateCompanyTable')
+BEGIN
+    ALTER TABLE [Companies] ADD [Phone2] nvarchar(max) NULL;
+END;
+GO
+
+IF NOT EXISTS(SELECT * FROM [__EFMigrationsHistory] WHERE [MigrationId] = N'20210714130212_AddBranchOfficeTableUpdateCompanyTable')
+BEGIN
+    CREATE TABLE [BranchOffices] (
+        [Id] int NOT NULL IDENTITY,
+        [Name] nvarchar(max) NOT NULL,
+        CONSTRAINT [PK_BranchOffices] PRIMARY KEY ([Id])
+    );
+END;
+GO
+
+IF NOT EXISTS(SELECT * FROM [__EFMigrationsHistory] WHERE [MigrationId] = N'20210714130212_AddBranchOfficeTableUpdateCompanyTable')
+BEGIN
+    CREATE INDEX [IX_Persons_BranchOfficeId] ON [Persons] ([BranchOfficeId]);
+END;
+GO
+
+IF NOT EXISTS(SELECT * FROM [__EFMigrationsHistory] WHERE [MigrationId] = N'20210714130212_AddBranchOfficeTableUpdateCompanyTable')
+BEGIN
+    ALTER TABLE [Persons] ADD CONSTRAINT [FK_Persons_BranchOffices_BranchOfficeId] FOREIGN KEY ([BranchOfficeId]) REFERENCES [BranchOffices] ([Id]) ON DELETE CASCADE;
+END;
+GO
+
+IF NOT EXISTS(SELECT * FROM [__EFMigrationsHistory] WHERE [MigrationId] = N'20210714130212_AddBranchOfficeTableUpdateCompanyTable')
+BEGIN
+    INSERT INTO [__EFMigrationsHistory] ([MigrationId], [ProductVersion])
+    VALUES (N'20210714130212_AddBranchOfficeTableUpdateCompanyTable', N'5.0.8');
+END;
+GO
+
+COMMIT;
+GO
+
+BEGIN TRANSACTION;
+GO
+
+IF NOT EXISTS(SELECT * FROM [__EFMigrationsHistory] WHERE [MigrationId] = N'20210717180443_AddDriverTable')
+BEGIN
+    CREATE TABLE [Drivers] (
+        [Id] int NOT NULL IDENTITY,
+        [Name] nvarchar(max) NOT NULL,
+        [Phone] nvarchar(max) NULL,
+        [Mobile1] nvarchar(max) NULL,
+        [Mobile2] nvarchar(max) NULL,
+        [FourDigitsCode] nvarchar(max) NULL,
+        [TrackNr] nvarchar(max) NULL,
+        [Notes] nvarchar(max) NULL,
+        [Email] nvarchar(max) NULL,
+        [DepartmentId] int NOT NULL,
+        [BranchOfficeId] int NOT NULL,
+        CONSTRAINT [PK_Drivers] PRIMARY KEY ([Id]),
+        CONSTRAINT [FK_Drivers_BranchOffices_BranchOfficeId] FOREIGN KEY ([BranchOfficeId]) REFERENCES [BranchOffices] ([Id]) ON DELETE CASCADE,
+        CONSTRAINT [FK_Drivers_Departments_DepartmentId] FOREIGN KEY ([DepartmentId]) REFERENCES [Departments] ([Id]) ON DELETE CASCADE
+    );
+END;
+GO
+
+IF NOT EXISTS(SELECT * FROM [__EFMigrationsHistory] WHERE [MigrationId] = N'20210717180443_AddDriverTable')
+BEGIN
+    CREATE INDEX [IX_Drivers_BranchOfficeId] ON [Drivers] ([BranchOfficeId]);
+END;
+GO
+
+IF NOT EXISTS(SELECT * FROM [__EFMigrationsHistory] WHERE [MigrationId] = N'20210717180443_AddDriverTable')
+BEGIN
+    CREATE INDEX [IX_Drivers_DepartmentId] ON [Drivers] ([DepartmentId]);
+END;
+GO
+
+IF NOT EXISTS(SELECT * FROM [__EFMigrationsHistory] WHERE [MigrationId] = N'20210717180443_AddDriverTable')
+BEGIN
+    INSERT INTO [__EFMigrationsHistory] ([MigrationId], [ProductVersion])
+    VALUES (N'20210717180443_AddDriverTable', N'5.0.8');
 END;
 GO
 
