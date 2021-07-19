@@ -500,3 +500,4 @@ C:\Users\Thodoris\source\Git\iAgenda\obj\Debug\net5.0\Razor\Views\BranchOffices\
 C:\Users\Thodoris\source\Git\iAgenda\obj\Debug\net5.0\Razor\Views\BranchOffices\Details.cshtml.g.cs
 C:\Users\Thodoris\source\Git\iAgenda\obj\Debug\net5.0\Razor\Views\BranchOffices\Edit.cshtml.g.cs
 C:\Users\Thodoris\source\Git\iAgenda\obj\Debug\net5.0\Razor\Views\BranchOffices\Index.cshtml.g.cs
+C:\Users\Thodoris\source\Git\iAgenda\obj\Debug\net5.0\iAgenda.csproj.AssemblyReference.cache

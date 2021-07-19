@@ -6,7 +6,7 @@ https://go.microsoft.com/fwlink/?LinkID=208121.
   <PropertyGroup>
     <TimeStampOfAssociatedLegacyPublishXmlFile />
     <_PublishTargetUrl>\\BACKUPSERVER\iAgenta</_PublishTargetUrl>
-    <History>True|2021-07-14T11:46:58.7245023Z;True|2021-07-14T14:40:18.8627260+03:00;True|2021-07-14T14:05:23.7837990+03:00;True|2021-07-14T13:32:23.5167648+03:00;False|2021-07-14T13:31:03.6201293+03:00;True|2021-07-14T13:27:15.8181855+03:00;True|2021-07-14T12:47:37.5385016+03:00;</History>
+    <History>True|2021-07-14T13:30:31.1471515Z;True|2021-07-14T16:25:00.3039246+03:00;True|2021-07-14T14:46:58.7245023+03:00;True|2021-07-14T14:40:18.8627260+03:00;True|2021-07-14T14:05:23.7837990+03:00;True|2021-07-14T13:32:23.5167648+03:00;False|2021-07-14T13:31:03.6201293+03:00;True|2021-07-14T13:27:15.8181855+03:00;True|2021-07-14T12:47:37.5385016+03:00;</History>
   </PropertyGroup>
   <ItemGroup>
     <DestinationConnectionStrings Include="DefaultConnection">
@@ -15,7 +15,7 @@ https://go.microsoft.com/fwlink/?LinkID=208121.
   </ItemGroup>
   <ItemGroup>
     <EFMigrations Include="iAgenda.Data.ApplicationDbContext">
-      <Value>Server=localhost%3bDatabase=iAgenda%3bTrusted_Connection=True%3bMultipleActiveResultSets=true</Value>
+      <Value>Server=localhost%3bDatabase=iAgenda%3bUser Id=tkanel%3bPassword=1234%40qwE%3bMultipleActiveResultSets=true</Value>
     </EFMigrations>
   </ItemGroup>
 </Project>
