@@ -22,5 +22,7 @@ namespace iAgenda.Data
         public DbSet<Company> Companies { get; set; }
 
         public DbSet<BranchOffice> BranchOffices { get; set; }
+
+        public  DbSet<Driver> Drivers { get; set; }
     }
 }
