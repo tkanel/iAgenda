@@ -1,0 +1,91 @@
+﻿@model IEnumerable<iAgenda.Models.Driver>
+
+@{
+    ViewData["Title"] = "Index";
+}
+
+<p>
+    <h4>Οδηγοί</h4>
+    <a class="btn btn-outline-secondary" asp-action="Create">Πατήστε εδώ για εισαγωγή οδηγού</a>
+</p>
+
+
+<table class="table table-bordered table-hover table-striped">
+    <thead class="text-white table table-dark">
+        <tr>
+            <th>
+                @Html.DisplayNameFor(model => model.Name)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.Phone)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.Mobile1)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.Mobile2)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.FourDigitsCode)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.TrackNr)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.Notes)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.Email)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.Department)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.BranchOffice)
+            </th>
+            <th></th>
+        </tr>
+    </thead>
+    <tbody>
+        @foreach (var item in Model)
+        {
+            <tr>
+                <td>
+                    @Html.DisplayFor(modelItem => item.Name)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.Phone)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.Mobile1)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.Mobile2)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.FourDigitsCode)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.TrackNr)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.Notes)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.Email)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.Department.Description)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.BranchOffice.Name)
+                </td>
+                <td>
+                    <a asp-action="Edit" asp-route-id="@item.Id">Edit</a> |
+                    <a asp-action="Details" asp-route-id="@item.Id">Details</a> |
+                    <a asp-action="Delete" asp-route-id="@item.Id">Delete</a>
+                </td>
+            </tr>
+        }
+    </tbody>
+</table>
