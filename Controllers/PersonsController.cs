@@ -23,7 +23,7 @@ namespace iAgenda.Controllers
         // GET: Persons
         public async Task<IActionResult> Index()
         {
-            var applicationDbContext = _context.Persons.Include(p => p.BranchOffice).Include(p => p.Department);
+            var applicationDbContext = _context.Persons.Include(p => p.BranchOffice).Include(p => p.Department).OrderBy(p=>p.Name);
             return View(await applicationDbContext.ToListAsync());
         }
 

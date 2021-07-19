@@ -22,7 +22,7 @@ namespace iAgenda.Controllers
         // GET: ExternalContacts
         public async Task<IActionResult> Index()
         {
-            var applicationDbContext = _context.ExternalContacts.Include(e => e.Companies);
+            var applicationDbContext = _context.ExternalContacts.Include(e => e.Companies).OrderBy(e=>e.Name);
             return View(await applicationDbContext.ToListAsync());
         }
 

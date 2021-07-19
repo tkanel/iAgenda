@@ -14,34 +14,34 @@
     <thead class="text-white table table-dark">
         <tr>
             <th>
-                @Html.DisplayNameFor(model => model.Name)
+                @Html.Label("ΟΝΟΜΑΤΕΠΩΝΥΜΟ")
             </th>
             <th>
-                @Html.DisplayNameFor(model => model.Phone)
+                @Html.Label(" ΣΤΑΘΕΡΟ ΤΗΛΕΦΩΝΟ")
             </th>
             <th>
-                @Html.DisplayNameFor(model => model.Mobile1)
+                @Html.Label("ΚΙΝΗΤΟ 1")
             </th>
             <th>
-                @Html.DisplayNameFor(model => model.Mobile2)
+                @Html.Label("ΚΙΝΗΤΟ 2")
             </th>
             <th>
-                @Html.DisplayNameFor(model => model.FourDigitsCode)
+                @Html.Label("ΤΕΤΡΑΨΗΦΙΟ")
             </th>
             <th>
-                @Html.DisplayNameFor(model => model.TrackNr)
+                @Html.Label("ΑΡΙΘΜΟΣ ΦΟΡΤΗΓΟΥ")
             </th>
             <th>
-                @Html.DisplayNameFor(model => model.Notes)
+                @Html.Label("ΣΗΜΕΙΩΣΕΙΣ")
             </th>
             <th>
-                @Html.DisplayNameFor(model => model.Email)
+                @Html.Label("EMAIL")
             </th>
             <th>
-                @Html.DisplayNameFor(model => model.Department)
+                @Html.Label("ΤΜΗΜΑ")
             </th>
             <th>
-                @Html.DisplayNameFor(model => model.BranchOffice)
+                @Html.Label("ΥΠΟΚΑΤΑΣΤΗΜΑ")
             </th>
             <th></th>
         </tr>
@@ -81,9 +81,7 @@
                     @Html.DisplayFor(modelItem => item.BranchOffice.Name)
                 </td>
                 <td>
-                    <a asp-action="Edit" asp-route-id="@item.Id">Edit</a> |
-                    <a asp-action="Details" asp-route-id="@item.Id">Details</a> |
-                    <a asp-action="Delete" asp-route-id="@item.Id">Delete</a>
+                    <partial name="_tableButtons" model="item" />
                 </td>
             </tr>
         }

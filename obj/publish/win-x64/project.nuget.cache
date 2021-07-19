@@ -1,6 +1,6 @@
 {
   "version": 2,
-  "dgSpecHash": "QZqE+nSS9EsRwqsuzJG87eVk35Wnm+t06cvCho98GS0sTnYkjLlGTAk6rykDSB/UgZuhK6T4zWwEcGx4qCckvA==",
+  "dgSpecHash": "eICGFrRoXI4oYNB3/7ldg97cYdIf6lKX1lofjSm1Jiv0iDCkWrEBKf9VqFHI/Px9GQKc8Op9XLSlz0GFa+sHCw==",
   "success": true,
   "projectFilePath": "C:\\Users\\Thodoris\\source\\Git\\iAgenda\\iAgenda.csproj",
   "expectedPackageFiles": [
@@ -29,10 +29,10 @@
     "C:\\Users\\Thodoris\\.nuget\\packages\\microsoft.entityframeworkcore\\5.0.8\\microsoft.entityframeworkcore.5.0.8.nupkg.sha512",
     "C:\\Users\\Thodoris\\.nuget\\packages\\microsoft.entityframeworkcore.abstractions\\5.0.8\\microsoft.entityframeworkcore.abstractions.5.0.8.nupkg.sha512",
     "C:\\Users\\Thodoris\\.nuget\\packages\\microsoft.entityframeworkcore.analyzers\\5.0.8\\microsoft.entityframeworkcore.analyzers.5.0.8.nupkg.sha512",
-    "C:\\Users\\Thodoris\\.nuget\\packages\\microsoft.entityframeworkcore.design\\5.0.6\\microsoft.entityframeworkcore.design.5.0.6.nupkg.sha512",
+    "C:\\Users\\Thodoris\\.nuget\\packages\\microsoft.entityframeworkcore.design\\5.0.8\\microsoft.entityframeworkcore.design.5.0.8.nupkg.sha512",
     "C:\\Users\\Thodoris\\.nuget\\packages\\microsoft.entityframeworkcore.relational\\5.0.8\\microsoft.entityframeworkcore.relational.5.0.8.nupkg.sha512",
-    "C:\\Users\\Thodoris\\.nuget\\packages\\microsoft.entityframeworkcore.sqlserver\\5.0.6\\microsoft.entityframeworkcore.sqlserver.5.0.6.nupkg.sha512",
-    "C:\\Users\\Thodoris\\.nuget\\packages\\microsoft.entityframeworkcore.tools\\5.0.6\\microsoft.entityframeworkcore.tools.5.0.6.nupkg.sha512",
+    "C:\\Users\\Thodoris\\.nuget\\packages\\microsoft.entityframeworkcore.sqlserver\\5.0.8\\microsoft.entityframeworkcore.sqlserver.5.0.8.nupkg.sha512",
+    "C:\\Users\\Thodoris\\.nuget\\packages\\microsoft.entityframeworkcore.tools\\5.0.8\\microsoft.entityframeworkcore.tools.5.0.8.nupkg.sha512",
     "C:\\Users\\Thodoris\\.nuget\\packages\\microsoft.extensions.caching.abstractions\\5.0.0\\microsoft.extensions.caching.abstractions.5.0.0.nupkg.sha512",
     "C:\\Users\\Thodoris\\.nuget\\packages\\microsoft.extensions.caching.memory\\5.0.0\\microsoft.extensions.caching.memory.5.0.0.nupkg.sha512",
     "C:\\Users\\Thodoris\\.nuget\\packages\\microsoft.extensions.configuration.abstractions\\5.0.0\\microsoft.extensions.configuration.abstractions.5.0.0.nupkg.sha512",

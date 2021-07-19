@@ -343,3 +343,49 @@ GO
 COMMIT;
 GO
 
+BEGIN TRANSACTION;
+GO
+
+IF NOT EXISTS(SELECT * FROM [__EFMigrationsHistory] WHERE [MigrationId] = N'20210717180443_AddDriverTable')
+BEGIN
+    CREATE TABLE [Drivers] (
+        [Id] int NOT NULL IDENTITY,
+        [Name] nvarchar(max) NOT NULL,
+        [Phone] nvarchar(max) NULL,
+        [Mobile1] nvarchar(max) NULL,
+        [Mobile2] nvarchar(max) NULL,
+        [FourDigitsCode] nvarchar(max) NULL,
+        [TrackNr] nvarchar(max) NULL,
+        [Notes] nvarchar(max) NULL,
+        [Email] nvarchar(max) NULL,
+        [DepartmentId] int NOT NULL,
+        [BranchOfficeId] int NOT NULL,
+        CONSTRAINT [PK_Drivers] PRIMARY KEY ([Id]),
+        CONSTRAINT [FK_Drivers_BranchOffices_BranchOfficeId] FOREIGN KEY ([BranchOfficeId]) REFERENCES [BranchOffices] ([Id]) ON DELETE CASCADE,
+        CONSTRAINT [FK_Drivers_Departments_DepartmentId] FOREIGN KEY ([DepartmentId]) REFERENCES [Departments] ([Id]) ON DELETE CASCADE
+    );
+END;
+GO
+
+IF NOT EXISTS(SELECT * FROM [__EFMigrationsHistory] WHERE [MigrationId] = N'20210717180443_AddDriverTable')
+BEGIN
+    CREATE INDEX [IX_Drivers_BranchOfficeId] ON [Drivers] ([BranchOfficeId]);
+END;
+GO
+
+IF NOT EXISTS(SELECT * FROM [__EFMigrationsHistory] WHERE [MigrationId] = N'20210717180443_AddDriverTable')
+BEGIN
+    CREATE INDEX [IX_Drivers_DepartmentId] ON [Drivers] ([DepartmentId]);
+END;
+GO
+
+IF NOT EXISTS(SELECT * FROM [__EFMigrationsHistory] WHERE [MigrationId] = N'20210717180443_AddDriverTable')
+BEGIN
+    INSERT INTO [__EFMigrationsHistory] ([MigrationId], [ProductVersion])
+    VALUES (N'20210717180443_AddDriverTable', N'5.0.8');
+END;
+GO
+
+COMMIT;
+GO
+
